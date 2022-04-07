@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sample Site</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        padding-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>GraphQl</h1>
+        <div id="graphql"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    fetch("/graphql", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ query: "{ hello, totalPosts, books{ title, author}, getCurrentDate }" }),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        const temp = document.querySelector('#graphql');
+        temp.textContent = JSON.stringify(data);
+        console.log("data returned:", data);}
+      ); 
+  </script>
+</html>
