@@ -23,13 +23,13 @@ Apollo Server Express должен запускаться асинхронно, 
 - Или после запуска контейнера можно запустить в режиме разработки выполнив npm run dev
 
 ## Использование 
-С помощью express-graphql мы можем просто отправить HTTP-запрос POST на конечную точку, на которой вы установили свой сервер GraphQL, передав запрос GraphQL в качестве query поля полезной нагрузки JSON.
-Cервер  GraphQL смонтирован по адресу http://localhost:4000/graphql , как в примере кода для запуска сервера Express GraphQL, отправить запрос для получения данных мы можем из командной строки с помощью curl.
+- С помощью express-graphql мы можем просто отправить HTTP-запрос POST на конечную точку, на которой вы установили свой сервер GraphQL, передав запрос GraphQL в качестве query поля полезной нагрузки JSON.
+- Cервер  GraphQL смонтирован по адресу http://localhost:4000/graphql , как в примере кода для запуска сервера Express GraphQL, отправить запрос для получения данных мы можем из командной строки с помощью curl.
 
 curl -s -X POST -H "Content-type: application/json" http://localhost:4000/graphql \
 --data '{ "query": "{ hello,totalPosts,getCurrentDate, getCurrentDateSleepDate{ time, date }}" }'
 
-По скольку в приложении используется и Express данніе можно получить перейдя http://localhost:4001/
+По скольку в приложении используется и Express данные можно получить перейдя http://localhost:4001/
 
 
 

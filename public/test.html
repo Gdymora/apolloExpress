@@ -32,13 +32,8 @@
       },
       body: JSON.stringify({
         query: `{ 
-           hello, 
-           totalPosts, 
            getCurrentDate,
-           getCurrentDateSleepDate{ time, date },
-           books{ title, author, getCurrentDate },
-           booksloadFile{ title, author, getCurrentDate }, 
-           booksloadFilePromisify{ title, author, getCurrentDate }
+           getCurrentDateSleepDate{ time, date }
         }`,
       }),
     })

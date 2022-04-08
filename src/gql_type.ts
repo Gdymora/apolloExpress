@@ -9,19 +9,8 @@ type DateSlip {
   date: Date!
 }
 
-type Book {
-    title: String
-    author: String
-    getCurrentDate: Date!
-  }
-  
   type Query {
-    hello: String
-    totalPosts: Int!
     getCurrentDate: Date!
     getCurrentDateSleepDate: DateSlip
-    books: [Book]
-    booksloadFile: [Book]
-    booksloadFilePromisify: [Book]
   }
 `;
