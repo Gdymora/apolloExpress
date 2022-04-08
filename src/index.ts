@@ -1,53 +1,15 @@
 import { ApolloServer, gql } from 'apollo-server-express';
 import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
-import { GraphQLScalarType } from 'graphql';
-
+import typeDefs from "./gql_type";
+import resolvers from "./gql";
 import express from 'express';
 import http from 'http';
 import path from 'path';
-//scalar Date
-const typeDefs = gql`
-scalar Date
-
-type Book {
-    title: String
-    author: String
-  }
-  type Query {
-    hello: String
-    totalPosts: Int!
-    getCurrentDate: Date!
-    books: [Book]
-  }
-`
-const books =
-    [{
-        title: 'The Awakening',
-        author: 'Kate Chopin',
-        getCurrentDate: Date.now()
-    },
-
-    {
-        title: 'The Awakening',
-        author: 'Kate Chopin',
-        getCurrentDate: Date.now()
-    }];
-
-const resolvers = {
-    Query: {
-        hello() {
-            return 'world'
-        },
-        totalPosts: () => 42,
-        books: () => books,
-        getCurrentDate: () => Date.now()
-    },
-}
 
 async function listen(port: number) {
     const app = express();
     app.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname, '../src/public/test.html'));
+        res.sendFile(path.join(__dirname, '../public/test.html'));
     })
     const httpServer = http.createServer(app);
     const server = new ApolloServer({
