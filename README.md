@@ -29,7 +29,7 @@ Cервер  GraphQL смонтирован по адресу http://localhost:4
 curl -s -X POST -H "Content-type: application/json" http://localhost:4000/graphql \
 --data '{ "query": "{ hello,totalPosts,getCurrentDate, getCurrentDateSleepDate{ time, date }}" }'
 
-По скольку в приложении используется и Express данніе можно получить перейдя http://localhost:4001/
+По скольку в приложении используется и Express данные можно получить перейдя http://localhost:4001/
 
 
 
